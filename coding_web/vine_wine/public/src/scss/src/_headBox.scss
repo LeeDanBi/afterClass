@@ -1,0 +1,7 @@
+// _headBox.scss
+/* ============== headBox.css ============== */
+#headBox{width: 100%; height: auto; padding: 1rem; background-color:map-get($color,point); color:map-get($color, white);font-size:map-get($fontSize,big);  margin-bottom:2rem;
+	&:hover a{color:map-get($color,white); font-weight:bold; text-shadow:0.2rem 0.2rem 0.2rem map-get($color, gray); text-decoration:underline;}
+>h1{font-size: inherit; color:inherit; text-align:center;
+}
+}

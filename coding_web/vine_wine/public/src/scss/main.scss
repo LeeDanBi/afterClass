@@ -1,0 +1,26 @@
+// main.scss 
+/* ========== main.css ========== */ 
+ @import "./base/variable.scss";
+ @import "./base/mixin.scss";
+
+#wrap{width: 100%; height: auto; min-height: 100%; background-image: url('../img/content/bg-texture-repeat.jpg'); background-repeat: repeat-y;
+}
+/* ------------------------ #headBox ------------------------ */
+#headBox{width: 100%; height: 124px; padding: 0 20px; box-sizing: border-box;}
+h1{width: 192px; height: 100px; background-image: url('../img/header/devine-logo.png'); background-repeat: no-repeat; -webkit-background-size: contain;
+background-size: contain; float: left;}
+.gnb{width: 800px; height: 100%; float: right; text-transform: uppercase;}
+.gnb > ul {display: flex; flex-wrap: wrap; align-items: center; justify-content: space-around; width: 100%; height: 100%;}
+.gnb > ul > li {width: auto;
+}
+/* ------------------------ #contentBox ------------------------ */
+
+
+/* ------------------------ #footBox ------------------------ */
+#footBox{width: 100%; height: auto; color: #777; padding-top: 45px;}
+.contact_box{display: flex; flex-wrap: no-wrap; width: 100%; height: auto; padding: 60px 0 60px;}
+.contact_box > div{width: 33.333333%; height: auto; text-align: center; padding: 0 60px; box-sizing: border-box;}
+.contact_box > div > h3{text-transform: uppercase; font-size: 25px; font-size: 1.5625rem; margin-bottom: 20px;}
+.contact_box div > p{margin-bottom: 20px;}
+#footBox address{padding: 20px 0; margin: 0 auto; box-sizing: border-box; max-width: 90%; text-align: center; font-style: normal; font-size: 12px; font-size: 0.75rem;
+}

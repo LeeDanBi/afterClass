@@ -1,0 +1,5 @@
+// _footBox.scss
+/* ============== footBox.css ============== */
+#footBox{width: 100%; height: auto; padding: 1rem; margin-top:1rem; background-color:map-get($color, gray); color:map-get($color, white);
+	>p{font-size:map-get($fontSize,small); 	text-align: center;}
+}
