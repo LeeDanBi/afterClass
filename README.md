@@ -3,5 +3,5 @@
 - [자바스크립트 마스터](./js_master)
 
 - 웹페이지 분석 및 코딩
-	1. [vine wine](https://leedanbi.github.io/afterClass/coding_web/vine_wine/public/dist)
+	1. [de Vine Wines](https://leedanbi.github.io/afterClass/coding_web/vine_wine/public/dist)
 	2. 
