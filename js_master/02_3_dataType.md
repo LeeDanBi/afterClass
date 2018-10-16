@@ -287,7 +287,7 @@ var msg = '';
 msg = msg || '안녕하세요, 자바스크립트!';
 console.log(msg); // 결과 : 안녕하세요, 자바스크립트!
 ```
-	- sg가 비어있으면 안 될 경우, 디폴트 값을 '안녕하세요, 자바스크립트!'로 사용. (ex. 프로필 사진이 없을 경우 기본 프로필 사진을 로드하고 싶을 때?)
+sg가 비어있으면 안 될 경우, 디폴트 값을 '안녕하세요, 자바스크립트!'로 사용. (ex. 프로필 사진이 없을 경우 기본 프로필 사진을 로드하고 싶을 때?)
 
 > 단, 'false와 같은 값' 자체에 의미가 있는 경우는 덮어씌워지는 문제가 있기 때문에 다음과 같은 연산자 사용을 권장한다.
 > ```javascript
@@ -307,7 +307,95 @@ msg = ( msg === undefined ? '안녕하세요, 자바스크립트!' : msg );
 |delete|객체의 프로퍼티나 배열의 요소를 삭제|
 |instanceof|객체가 지정된 클래스의 인스턴스인자를 판정|
 |new|새로운 인스턴스를 생성|
-|||
-|||
+|typeof|오퍼랜드의 데이터형을 취득|
+|void|미정의 값을 되돌림|
+
+- delete 연산자
+
+```javascript
+var ary = ['javaScript', 'Ajax', 'ASP.NET'];
+console.log(delete ary[0]); // 결과 : true
+/* ① */ console.log(ary); // 결과 : [empty, "Ajax", "ASP.NET"] 
+
+var obj = {x:1, y:2};
+console.log(delete obj.x); // 결과 : true
+console.log(obj.x); // 결과 : undefined
+
+var obj2 = {x: obj, y:2};
+console.log(delete obj2.x); // 결과 : true
+/* ② */console.log(obj); // 결과 : {y:2}
+
+var data1 = 1;
+console.log(delete data1); // 결과 : false
+/* ③ */console.log(data1); // 결과 : 1
+
+data2 = 10;
+console.log(delete data2); // 결과 : true
+console.log(data2); // 결과 : 오류(data2는 존재하지 않는다)
+```
+1. 배열 요소를 삭제한 경우, 해당하는 요소가 삭제되기만 할 뿐 뒤의 요소가 앞으로 옮겨지는 것은 아니다. (인덱스 번호는 변하지 않는다.)
+2. 프로퍼티를 삭제한 경우도 프로퍼티 그 자체가 삭제될 분 프로퍼티가 참조하는 객체가 삭제되는 것은 아니다.
+3. 명시적으로 선언된 변수를 삭제할 수 없다.
+
+- typeof 연산자
+
+```javascript
+var num = 1;
+console.log(typeof num); // number
+
+var str = '안녕하세요';
+console.log(typeof str); // string
+
+var flag = true;
+console.log(typeof flag); // boolean
+
+var ary = ['JavaScript', 'Ajax', 'ASP.NET'];
+console.log(typeof ary); // object
+
+var obj = {x:1, y:2};
+console.log(typeof obj); // object
+```
+> 어떤 객체인지 좀 더 명확히 알고 싶다면 instanceof 연산자나 constructor프로퍼티 사용
+
+### 2-4-7 연산자의 우선순위와 결합순서
+
+- 우선순위
+
+javaScript에서 연산자는 우선순위를 가지고 있다. 복수의 연산자가 포함되어 있는 경우 javascript는 우선순위가 높은 순서대로 연산한다.
+
+|우선순위|연산자|
+|--------|--------|
+|높다|배열([]), 괄호(())|
+|↑|증가 연산자(++), 감소 연산자(--), 단항 뺄셈(-), 반전(~), 부정(!)|
+||곱셈(*), 나눗셈(/), 나머지(%)|
+||더하기(+), 뺄셈(-), 문자열 결합(+)|
+||비교(<, <=, >=, >)|
+||등가(==), 부등가(!=), 동치(===), 비동치(!==)|
+||논리 AND(&&)|
+||논리 OR|
+||조건(?:)|
+|↓|대입(=), 복합대입(+=, -= 등)|
+|낮다|콤마(,)|
+
+복잡한 식을 기술할 경우에는 될 수 잇는 한 괄호를 사용하여 연산의 우선순위를 명시적으로 나타내일 권장한다.
+
+- 결합순서
+결합순서 : 우선순위가 동일한 경우에 어떤 방향으로 연산을 행할 것인지를 정한 규칙
+
+|결합성|연산자의 종류|연산자|
+|--------|--------|--------|
+|좌→우|산술 연산자|`+,-,*,/,%`|
+|''|비교 연산자|`<,<=,>,=>,==,!=,===,!==`|
+|''|논리 연산자|(논리 AND), (논리 OR)|
+|''|그 외|., [], (), instanceof, in|
+|우→좌|산술 연산자|`++, --`|
+|''|대입 연산자| `=,+=,-=,*=, /=, %=, ^=`|
+|''|논리 연산자|!|
+|''|조건 연산자|?:|
+|''|그 외|-(부호반전), +(무연산), delete, thypeof, void|
+
+
+
+
 
 ## 2-5 제어 구문
